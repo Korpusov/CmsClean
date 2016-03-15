@@ -1,0 +1,66 @@
+<div class="row" ng-controller="ChatsCtrl">
+    <div class="col-md-3">
+        <!-- DIRECT CHAT PRIMARY -->
+        <div class="box box-primary direct-chat direct-chat-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Direct Chat</h3>
+                <div class="box-tools pull-right">
+                    <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</span>
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg" ng-repeat="chat in chats">
+                        <div class="direct-chat-info clearfix">
+                            <span class="direct-chat-name pull-left">{{chat.author}}</span>
+                            <span class="direct-chat-timestamp pull-right">{{chat.date}}</span>
+                        </div>
+                        <!-- /.direct-chat-info -->
+                        <!-- <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="message user image"> -->
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                            {{chat.message}}
+                        </div>
+                        <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+                    <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                        <div class="direct-chat-info clearfix">
+                            <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                            <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                        </div>
+                        <!-- /.direct-chat-info -->
+                        <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="message user image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                            You better believe it!
+                        </div>
+                        <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+                <!-- /.direct-chat-pane -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <form>
+                    <div class="input-group">
+                        <input type="text" name="message" placeholder="Введите текст" ng-model="chat.message" class="form-control">
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary btn-flat" ng-click="sendChat(chat)">Отправить</button>
+                      </span>
+                    </div>
+                </form>
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!--/.direct-chat -->
+    </div>
+</div>

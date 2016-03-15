@@ -1,0 +1,60 @@
+
+<section class="content-header" ng-controller="Table">
+    <h1>
+            Таблица клиентов
+          </h1>
+    <!-- <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Tables</a></li>
+    <li class="active">Таблица клиентов</li>
+</ol> -->
+</section>
+<!-- Content Header (Page header) -->
+<!-- Main content -->
+<section class="content" >
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+                </div>
+                <div class="box-header">
+                    <p>Поиск:
+                        <input type="text" ng-model="query">
+                    </p>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Дата</th>
+                                <th>Телефон</th>
+                                <th>Email</th>
+                                <th>Адрес</th>
+                                <th>Информация о заказе</th>
+                                <th>Компания</th>
+                                <th>Стоимость заказа</th>
+                                <th>Статус заказа</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="phone in phones | filter: {$:query} | orderBy:'-Date'">
+                                <td>{{phone.Date}}</td>
+                                <td>{{phone.Phone}}</td>
+                                <td>{{phone.Mail}}</td>
+                                <td>г. {{phone.Sity}}, ул. {{phone.Street}} д. {{phone.NumberHome}} кв. {{phone.numberApartment}}</td>
+                                <td>Количество комнат: {{phone.NumberRoom}}, Санузлов: {{phone.NumberWC}}, Тип уборки: {{phone.NumberTypeClean}}, Площадь: {{phone.NumberScale}}</td>
+                                <td>{{phone.Company}} </td>
+                                <td>{{phone.status}}</td>
+                                <td>
+                                    <button ng-class="{phone.status == 'Подтвержить' ? 'btn-success' : 'btn-warning'}" ng-click="confirm(phone.id)" class="btn ">{{phone.status}}</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
